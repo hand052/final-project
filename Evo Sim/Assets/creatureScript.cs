@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class creatureScript : MonoBehaviour
 {
@@ -61,6 +62,8 @@ public class creatureScript : MonoBehaviour
         StartCoroutine(Move(L_Arm_Joint, LA_f1, LA_t1, LA_f2, LA_t2));
         StartCoroutine(Move(R_Leg_Joint, RL_f1, RL_t1, RL_f2, RL_t2));
         StartCoroutine(Move(L_Leg_Joint, LL_f1, LL_t1, LL_f2, LL_t2));
+
+        
     }
 
     
@@ -81,8 +84,8 @@ public class creatureScript : MonoBehaviour
     
     void Update()
     {
-        //Distance from Spawn
-        distance = Vector3.Distance(transform.position, Vector3.zero);
+        //Distance forward
+        distance = transform.position.z -(Mathf.Abs(transform.position.x) /3);
 
     }
 }
