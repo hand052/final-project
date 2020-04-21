@@ -62,21 +62,14 @@ public class spawnerScript : MonoBehaviour
         yield return new WaitForSeconds(waveTime);
         StartCoroutine("NextWave");
         currentCreatures = GameObject.FindGameObjectsWithTag("Creature1");
-
-
-        
-
     }
 
     public GameObject FarthestCreature;
     public GameObject SecondFarthestCreature;
-    IEnumerator NextWave()
-    {
-       
-        currentCreatures = GameObject.FindGameObjectsWithTag("Creature1");
-        
 
-        //find best creature
+    void CheckBestCreatures()
+    {
+        currentCreatures = GameObject.FindGameObjectsWithTag("Creature1");
         float farthestDistance = 0;
         float secondfarthestDistance = 0;
         for (int i = 0; i < currentCreatures.Length; i++)
@@ -84,6 +77,7 @@ public class spawnerScript : MonoBehaviour
             float currentDistance = currentCreatures[i].GetComponentInChildren<creatureScript>().distance;
             if (currentDistance > farthestDistance)
             {
+                FarthestCreature = currentCreatures[i];
                 secondfarthestDistance = farthestDistance;
                 farthestDistance = currentDistance;
 
@@ -92,7 +86,22 @@ public class spawnerScript : MonoBehaviour
                 FarthestCreature = currentCreatures[i];
             }
         }
+    }
+    IEnumerator NextWave()
+    {
+       
         
+
+
+        //find best creature
+       
+        CheckBestCreatures();
+        
+
+        foreach (GameObject go in currentCreatures)
+        {
+            go.gameObject.tag = "oldCreature";
+        }
         //Spawn Second Generation
 
         //Best Creature with Mutations
@@ -175,12 +184,14 @@ public class spawnerScript : MonoBehaviour
             CS.LL_t2 = SecondBestCS.LL_t2 + Random.Range(-mutatateRate / 50, mutatateRate / 50);
         }
         
-        yield return new WaitForSeconds(waveTime);
+        
         //Destroy Previous Generation
-        foreach (GameObject go in currentCreatures)
+        GameObject[] oldCreatures = GameObject.FindGameObjectsWithTag("oldCreature");
+        foreach (GameObject go in oldCreatures)
         {
-            Destroy(go, 1f);
+            Destroy(go);
         }
+        yield return new WaitForSeconds(waveTime);
         //Repeat
         StartCoroutine("NextWave");
 

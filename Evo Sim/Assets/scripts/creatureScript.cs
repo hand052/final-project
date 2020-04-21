@@ -85,7 +85,8 @@ public class creatureScript : MonoBehaviour
     void Update()
     {
         //Distance forward
-        distance = transform.position.z -(Mathf.Abs(transform.position.x) /3);
+       // distance = transform.position.z -(Mathf.Abs(transform.position.x) /3);
+        distance = Vector3.Distance(Vector3.zero, transform.position);
 
     }
 }
