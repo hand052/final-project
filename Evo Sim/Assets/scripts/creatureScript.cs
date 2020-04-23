@@ -8,35 +8,43 @@ public class creatureScript : MonoBehaviour
     public float distance;
 
     public GameObject R_Arm;
+    public GameObject R_Arm_Scale;
     public HingeJoint R_Arm_Joint;
 
     public GameObject L_Arm;
+    public GameObject L_Arm_Scale;
     public HingeJoint L_Arm_Joint;
 
     public GameObject R_Leg;
+    public GameObject R_Leg_Scale;
     public HingeJoint R_Leg_Joint;
 
     public GameObject L_Leg;
+    public GameObject L_Leg_Scale;
     public HingeJoint L_Leg_Joint;
 
 
     //Right Arm Values
+    public Vector3 RA_Scale = new Vector3(1f,1f,1f);
     public float RA_f1;
     public float RA_t1;
     public float RA_f2;
     public float RA_t2;
     //Left Arm Values
+    public Vector3 LA_Scale = new Vector3(1f, 1f, 1f);
     public float LA_f1;
     public float LA_t1;
     public float LA_f2;
     public float LA_t2;
 
     //Right Leg Values
+    public Vector3 RL_Scale = new Vector3(1f, 1f, 1f);
     public float RL_f1;
     public float RL_t1;
     public float RL_f2;
     public float RL_t2;
     //Left Leg Values
+    public Vector3 LL_Scale = new Vector3(1f, 1f, 1f);
     public float LL_f1;
     public float LL_t1;
     public float LL_f2;
@@ -87,6 +95,9 @@ public class creatureScript : MonoBehaviour
         //Distance forward
        // distance = transform.position.z -(Mathf.Abs(transform.position.x) /3);
         distance = Vector3.Distance(Vector3.zero, transform.position);
-
+        R_Arm_Scale.transform.localScale = RA_Scale;
+        L_Arm_Scale.transform.localScale = LA_Scale;
+        R_Leg_Scale.transform.localScale = RL_Scale;
+        L_Leg_Scale.transform.localScale = LL_Scale;
     }
 }
