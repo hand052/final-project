@@ -6,21 +6,22 @@ using UnityEngine.SceneManagement;
 public class creatureScript : MonoBehaviour
 {
     public float distance;
+    public Vector3 SpawnPoint;
 
     public GameObject R_Arm;
-    public GameObject R_Arm_Scale;
+    
     public HingeJoint R_Arm_Joint;
 
     public GameObject L_Arm;
-    public GameObject L_Arm_Scale;
+    
     public HingeJoint L_Arm_Joint;
 
     public GameObject R_Leg;
-    public GameObject R_Leg_Scale;
+    
     public HingeJoint R_Leg_Joint;
 
     public GameObject L_Leg;
-    public GameObject L_Leg_Scale;
+    
     public HingeJoint L_Leg_Joint;
 
 
@@ -52,7 +53,7 @@ public class creatureScript : MonoBehaviour
 
     void Start()
     {
-       
+        SpawnPoint = transform.position;
 
         //Get Hinge Joints
         R_Arm_Joint = R_Arm.GetComponent<HingeJoint>();
@@ -94,10 +95,10 @@ public class creatureScript : MonoBehaviour
     {
         //Distance forward
        // distance = transform.position.z -(Mathf.Abs(transform.position.x) /3);
-        distance = Vector3.Distance(Vector3.zero, transform.position);
-        R_Arm_Scale.transform.localScale = RA_Scale;
-        L_Arm_Scale.transform.localScale = LA_Scale;
-        R_Leg_Scale.transform.localScale = RL_Scale;
-        L_Leg_Scale.transform.localScale = LL_Scale;
+        distance = Vector3.Distance(SpawnPoint, transform.position);
+        R_Arm.transform.localScale = RA_Scale;
+        L_Arm.transform.localScale = LA_Scale;
+        R_Leg.transform.localScale = RL_Scale;
+        L_Leg.transform.localScale = LL_Scale;
     }
 }
