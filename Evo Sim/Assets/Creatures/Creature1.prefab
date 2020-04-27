@@ -168,7 +168,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.55350137, y: -0.06206465, z: -0.3754928}
+  m_ConnectedAnchor: {x: 0.55350137, y: -0.062064525, z: -0.3754928}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -295,7 +295,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2730066846813069437}
   serializedVersion: 2
-  m_Mass: 15
+  m_Mass: 4
   m_Drag: 2
   m_AngularDrag: 1
   m_UseGravity: 1
@@ -316,6 +316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distance: 0
+  SpawnPoint: {x: 0, y: 0, z: 0}
   R_Arm: {fileID: 1773818886200157748}
   R_Arm_Joint: {fileID: 0}
   L_Arm: {fileID: 1099995196128584861}
@@ -369,7 +370,7 @@ Transform:
   m_GameObject: {fileID: 2730066847430287808}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.18304121, y: 0.500229, z: -0.16909255}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children:
   - {fileID: 2730066846813069431}
   - {fileID: 3370530045993948199}

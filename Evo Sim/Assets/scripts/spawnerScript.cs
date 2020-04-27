@@ -11,6 +11,7 @@ public class spawnerScript : MonoBehaviour
     public int populationSize = 10;
     public float startForce = 500f;
     public float scaleMutateFactor = 30f;
+    public float generation = 0f;
 
     public GameObject[] currentCreatures;
 
@@ -22,6 +23,7 @@ public class spawnerScript : MonoBehaviour
     //Purely Randomized Spawn
     void FirstSpawn()
     {
+        generation = 1;
         for (int i = 0; i < populationSize; i++)
         {
             GameObject creature = (GameObject)Instantiate(creature1, transform.position, Quaternion.identity);
@@ -94,7 +96,7 @@ public class spawnerScript : MonoBehaviour
     }
     IEnumerator NextWave()
     {
-       
+        generation++;
         
 
 
