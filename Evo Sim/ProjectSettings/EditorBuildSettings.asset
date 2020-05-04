@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/museum.unity
+    guid: b7e379b6a44af44f9b51a90b09d573e0
   m_configObjects: {}
